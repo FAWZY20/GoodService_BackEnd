@@ -1,13 +1,14 @@
-package com.example.goodservice;
+package com.example.goodservice.model;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "utilisateur")
-public class User {
+public class UserRegister {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(nullable = false, length = 20)
     private String nom;
@@ -16,7 +17,7 @@ public class User {
     private String prenom;
 
     @Column(nullable = false,unique = true, length = 10)
-    private String numero;
+    private Integer numero;
 
     @Column(nullable = false, unique = true, length = 45 )
     private String email;
@@ -25,20 +26,32 @@ public class User {
     private String adresse;
 
     @Column(nullable = false, length = 5)
-    private String cdp;
+    private String code_postal;
 
     @Column(nullable = false, length = 20)
     private String ville;
 
     @Column(nullable = false, length = 64)
-    private String password;
+    private String mdp;
 
+    public UserRegister() {}
 
-    public Long getId() {
+    public UserRegister(String nom, String prenom, Integer numero, String email, String adresse, String code_postal, String ville, String mdp) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.numero = numero;
+        this.email = email;
+        this.adresse = adresse;
+        this.code_postal = code_postal;
+        this.ville = ville;
+        this.mdp = mdp;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,11 +71,11 @@ public class User {
         this.prenom = prenom;
     }
 
-    public String getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
@@ -82,12 +95,12 @@ public class User {
         this.adresse = adresse;
     }
 
-    public String getCdp() {
-        return cdp;
+    public String getCode_postal() {
+        return code_postal;
     }
 
-    public void setCdp(String cdp) {
-        this.cdp = cdp;
+    public void setCode_postal(String cdp) {
+        this.code_postal = cdp;
     }
 
     public String getVille() {
@@ -98,12 +111,12 @@ public class User {
         this.ville = ville;
     }
 
-    public String getPassword() {
-        return password;
+    public String getMdp() {
+        return mdp;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMdp(String password) {
+        this.mdp = password;
     }
 
 

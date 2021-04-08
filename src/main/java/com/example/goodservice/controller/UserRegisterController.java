@@ -7,13 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
 public class UserRegisterController {
 
     @Autowired
     private UserService service;
 
-    @PostMapping("/register")
+    @PostMapping("/registerUser")
     @CrossOrigin(origins = "http://localhost:4200")
     public UserRegister registerUser(@RequestBody UserRegister user) throws Exception {
         String tempEmail = user.getEmail();
@@ -29,7 +28,7 @@ public class UserRegisterController {
         return (UserRegister) userObj;
     }
 
-    @PostMapping("/connexion")
+    @PostMapping("/connexionUser")
     @CrossOrigin(origins = "http://localhost:4200")
     public UserRegister loginUser(@RequestBody UserRegister userRegister) throws Exception {
         String tempEmail = userRegister.getEmail();
@@ -39,7 +38,7 @@ public class UserRegisterController {
            userObj = (UserRegister) service.fetchUserByEmailAndMdp(tempEmail, tempPass);
         }
         if(userObj == null ) {
-            throw new Exception("Bad credentials");
+            throw new Exception("Mauvaises qualifications");
         }
         return (UserRegister) userObj;
     }

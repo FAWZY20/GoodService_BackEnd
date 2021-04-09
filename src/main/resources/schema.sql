@@ -1,6 +1,7 @@
 CREATE TABLE utilisateur
 (
     id SERIAL PRIMARY KEY,
+    id INT PRIMARY KEY NOT NULL,
     nom VARCHAR(100),
     prenom VARCHAR(100),
     numero int ,
@@ -13,8 +14,10 @@ CREATE TABLE utilisateur
 )
 
 CREATE TABLE professional
+
 (
     id SERIAL PRIMARY KEY,
+    id INT PRIMARY KEY NOT NULL,
     nom VARCHAR(100),
     prenom VARCHAR(100),
     Date_naissance DATE,
@@ -24,5 +27,4 @@ CREATE TABLE professional
     numero int,
     email VARCHAR(255),
     mdp VARCHAR(18)
-
 )

@@ -8,8 +8,11 @@ import java.util.Date;
 public class ProfesionalRegister {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false, length = 20)
+    private String poste;
 
     @Column(nullable = false, length = 20)
     private String nom;
@@ -29,6 +32,9 @@ public class ProfesionalRegister {
     @Column(nullable = false, length = 5)
     private String code_postal;
 
+    @Column(nullable = false, length = 5)
+    private String ville;
+
     @Column(nullable = false,unique = true, length = 10)
     private Integer numero;
 
@@ -40,13 +46,15 @@ public class ProfesionalRegister {
 
     public ProfesionalRegister(){}
 
-    public  ProfesionalRegister(String nom, String prenom, Date date_naissance, String siret, String adresse, String code_postal, Integer numero, String email, String mdp){
+    public  ProfesionalRegister(String poste, String nom, String prenom, Date date_naissance, String siret, String adresse, String code_postal, String ville, Integer numero, String email, String mdp){
+        this.poste=poste;
         this.nom=nom;
         this.prenom=prenom;
         this.date_naissance=date_naissance;
         this.siret=siret;
         this.adresse=adresse;
         this.code_postal=code_postal;
+        this.ville=ville;
         this.numero=numero;
         this.email=email;
         this.mdp=mdp;
@@ -58,6 +66,14 @@ public class ProfesionalRegister {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getPoste() {
+        return poste;
+    }
+
+    public void setPoste(String poste) {
+        this.poste = poste;
     }
 
     public String getNom() {
@@ -102,6 +118,14 @@ public class ProfesionalRegister {
 
     public String getCode_postal() {
         return code_postal;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 
     public void setCode_postal(String code_postal) {

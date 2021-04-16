@@ -44,7 +44,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200", "Access-Control-Allow-Origin: https://mugiwara.csid.agilitejoviale.fr");
+                registry.addMapping("/**").allowedOrigins("http://localhost:4200", "https://mugiwara.csid.agilitejoviale.fr");
             }
         };
     }

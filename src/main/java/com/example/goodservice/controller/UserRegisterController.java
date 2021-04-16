@@ -2,7 +2,6 @@ package com.example.goodservice.controller;
 
 import com.example.goodservice.Service.UserService;
 import com.example.goodservice.model.UserRegister;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

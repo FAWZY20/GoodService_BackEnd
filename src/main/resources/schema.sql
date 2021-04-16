@@ -8,12 +8,12 @@ CREATE TABLE utilisateur
     adresse VARCHAR(255),
     code_postal VARCHAR(5),
     ville VARCHAR(255),
-    mdp VARCHAR(18)
+    mdp VARCHAR(512) NOT NULL
 
 )
 
 CREATE TABLE professional
-{
+(
     id INT PRIMARY KEY NOT NULL,
     nom VARCHAR(100),
     prenom VARCHAR(100),
@@ -25,4 +25,4 @@ CREATE TABLE professional
     email VARCHAR(255),
     mdp VARCHAR(18)
 
-}
+)

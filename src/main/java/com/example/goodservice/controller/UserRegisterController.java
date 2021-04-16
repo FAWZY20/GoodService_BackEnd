@@ -12,7 +12,6 @@ public class UserRegisterController {
     private UserService service;
 
     @PostMapping("/registerUser")
-    @CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr/")
     public UserRegister registerUser(@RequestBody UserRegister user) throws Exception {
         String tempEmail = user.getEmail();
         if(tempEmail != null && !"".equals(tempEmail))
@@ -28,7 +27,6 @@ public class UserRegisterController {
     }
 
     @PostMapping("/connexionUser")
-    @CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr/")
     public UserRegister loginUser(@RequestBody UserRegister userRegister) throws Exception {
         String tempEmail = userRegister.getEmail();
         String tempPass = userRegister.getMdp();

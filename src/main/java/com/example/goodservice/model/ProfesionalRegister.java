@@ -1,5 +1,7 @@
 package com.example.goodservice.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,8 +10,9 @@ import java.util.Date;
 public class ProfesionalRegister {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
 
     @Column(nullable = false, length = 20)
     private String poste;
@@ -60,11 +63,11 @@ public class ProfesionalRegister {
         this.mdp=mdp;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

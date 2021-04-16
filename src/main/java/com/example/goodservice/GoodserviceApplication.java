@@ -12,7 +12,6 @@ public class GoodserviceApplication {
         SpringApplication.run(GoodserviceApplication.class, args);
     }
 
-
     protected SpringApplicationBuilder configure(
             SpringApplicationBuilder builder) {
         return builder.sources(GoodserviceApplication.class);

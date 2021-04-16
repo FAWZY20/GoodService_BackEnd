@@ -5,6 +5,7 @@ import com.example.goodservice.model.UserRegister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr")
 @RestController
 public class UserRegisterController {
 

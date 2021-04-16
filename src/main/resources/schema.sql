@@ -9,14 +9,18 @@ CREATE TABLE utilisateur
     adresse VARCHAR(255),
     code_postal VARCHAR(5),
     ville VARCHAR(255),
-    mdp VARCHAR(18)
+    mdp VARCHAR(512) NOT NULL
 
 )
 
 CREATE TABLE professional
+<<<<<<< HEAD
+(
+=======
 
 (
     id SERIAL PRIMARY KEY,
+>>>>>>> 4ed86b1c5ba590d70f5da9e4c1af8748b427f049
     id INT PRIMARY KEY NOT NULL,
     poste VARCHAR(100),
     nom VARCHAR(100),
@@ -29,4 +33,9 @@ CREATE TABLE professional
     numero int,
     email VARCHAR(255),
     mdp VARCHAR(18)
+<<<<<<< HEAD
+
 )
+=======
+)
+>>>>>>> 4ed86b1c5ba590d70f5da9e4c1af8748b427f049

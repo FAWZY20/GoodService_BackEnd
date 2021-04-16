@@ -1,3 +1,4 @@
+
 package com.example.goodservice.config;
 
 
@@ -7,6 +8,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -16,7 +25,6 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception
     {
-
         http.csrf().disable();
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
@@ -39,4 +47,6 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
             }
         };
     }
+
 }
+

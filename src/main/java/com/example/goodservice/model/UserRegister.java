@@ -3,7 +3,7 @@ package com.example.goodservice.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "utilisateur")
+@Table(name = "users")
 public class UserRegister {
 
     @Id
@@ -115,9 +115,7 @@ public class UserRegister {
         return mdp;
     }
 
-    public void setMdp(String password) {
-        this.mdp = password;
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
-
-
 }

@@ -11,7 +11,6 @@ public class UserRegisterController {
     @Autowired
     private UserService service;
 
-    @CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr")
     @PostMapping("/registerUser")
     public UserRegister registerUser(@RequestBody UserRegister user) throws Exception {
         String tempEmail = user.getEmail();
@@ -26,8 +25,7 @@ public class UserRegisterController {
         userObj = (UserRegister) service.saveUser(user);
         return (UserRegister) userObj;
     }
-    
-    @CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr")
+
     @PostMapping("/connexionUser")
     public UserRegister loginUser(@RequestBody UserRegister userRegister) throws Exception {
         String tempEmail = userRegister.getEmail();

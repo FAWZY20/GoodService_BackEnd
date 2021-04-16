@@ -1,0 +1,29 @@
+2021-04-16 18:27:45.215  INFO 11496 --- [restartedMain] c.e.goodservice.GoodserviceApplication   : Starting GoodserviceApplication using Java 11.0.9.1 on LAPTOP-SPV9AQ46 with PID 11496 (C:\GoodService\GoodService_BackEnd-main\target\classes started by Fawzy in C:\GoodService\GoodService_BackEnd-main)
+2021-04-16 18:27:45.219  INFO 11496 --- [restartedMain] c.e.goodservice.GoodserviceApplication   : No active profile set, falling back to default profiles: default
+2021-04-16 18:27:45.273  INFO 11496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-16 18:27:45.274  INFO 11496 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-16 18:27:46.024  INFO 11496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-16 18:27:46.075  INFO 11496 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 2 JPA repository interfaces.
+2021-04-16 18:27:46.642  INFO 11496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-16 18:27:46.651  INFO 11496 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-16 18:27:46.652  INFO 11496 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.43]
+2021-04-16 18:27:46.735  INFO 11496 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-16 18:27:46.736  INFO 11496 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1454 ms
+2021-04-16 18:27:46.844  INFO 11496 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-16 18:27:47.004  INFO 11496 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-16 18:27:47.059  INFO 11496 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-16 18:27:47.142  INFO 11496 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-16 18:27:47.185  INFO 11496 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.28.Final
+2021-04-16 18:27:47.300  INFO 11496 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-16 18:27:47.407  INFO 11496 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-04-16 18:27:47.853  INFO 11496 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-16 18:27:47.861  INFO 11496 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-16 18:27:48.199  WARN 11496 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-16 18:27:48.318  INFO 11496 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-16 18:27:48.518  INFO 11496 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 231a1c7d-dc89-4c51-b53a-a8fdaa1bb817
+
+2021-04-16 18:27:48.599  INFO 11496 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@485eba42, org.springframework.security.web.context.SecurityContextPersistenceFilter@2c57d59d, org.springframework.security.web.header.HeaderWriterFilter@3685356a, org.springframework.web.filter.CorsFilter@5d4ad13d, org.springframework.security.web.authentication.logout.LogoutFilter@52999433, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59fb6ef3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b1731dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c9ad940, org.springframework.security.web.session.SessionManagementFilter@1fa9fb24, org.springframework.security.web.access.ExceptionTranslationFilter@18456bf6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c017db8]
+2021-04-16 18:27:48.667  INFO 11496 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-16 18:27:48.679  INFO 11496 --- [restartedMain] c.e.goodservice.GoodserviceApplication   : Started GoodserviceApplication in 3.964 seconds (JVM running for 4.929)

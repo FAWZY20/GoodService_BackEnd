@@ -3,7 +3,7 @@ package com.example.goodservice.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "utilisateur")
 public class UserRegister {
 
     @Id

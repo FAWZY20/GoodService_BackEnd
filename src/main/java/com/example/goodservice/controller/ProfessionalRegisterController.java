@@ -15,7 +15,6 @@ public class ProfessionalRegisterController {
     private ProfessionalService service;
 
     @PostMapping("/registerProfessional")
-    @CrossOrigin(origins = "http://localhost:4200")
     public ProfesionalRegister registerProfessional(@RequestBody ProfesionalRegister professional) throws Exception
     {
         String tempEmail = professional.getEmail();
@@ -32,7 +31,6 @@ public class ProfessionalRegisterController {
     }
 
     @PostMapping("/connexionProfessional")
-    @CrossOrigin(origins = "http://localhost:4200")
     public ProfesionalRegister loginProfessional(@RequestBody ProfesionalRegister profesionalRegister) throws Exception
     {
         String tempEmail = profesionalRegister.getEmail();

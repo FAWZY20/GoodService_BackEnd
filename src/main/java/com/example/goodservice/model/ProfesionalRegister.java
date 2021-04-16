@@ -23,7 +23,7 @@ public class ProfesionalRegister {
     @Column(nullable = false)
     private Date date_naissance;
 
-    @Column(nullable = false, length = 14)
+    @Column(nullable = false, length = 18)
     private String siret;
 
     @Column(nullable = false, length = 50)

@@ -14,6 +14,7 @@ public class ProfessionalRegisterController {
     @Autowired
     private ProfessionalService service;
 
+    @CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr")
     @PostMapping("/registerProfessional")
     public ProfesionalRegister registerProfessional(@RequestBody ProfesionalRegister professional) throws Exception
     {
@@ -30,6 +31,7 @@ public class ProfessionalRegisterController {
         return (ProfesionalRegister) userObj;
     }
 
+    @CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr")
     @PostMapping("/connexionProfessional")
     public ProfesionalRegister loginProfessional(@RequestBody ProfesionalRegister profesionalRegister) throws Exception
     {

@@ -41,8 +41,6 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated();
 
     }
-
-
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {

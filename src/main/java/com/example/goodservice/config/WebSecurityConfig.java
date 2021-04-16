@@ -2,6 +2,7 @@
 package com.example.goodservice.config;
 
 
+import org.apache.catalina.filters.CorsFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +27,9 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception
     {
+
         http.csrf().disable();
+        http.cors();
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
@@ -39,15 +42,32 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     }
 
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("https://mugiwara.csid.agilitejoviale.fr");
+                registry.addMapping("/**").allowedOrigins("http://localhost:4200", "https://mugiwara.csid.agilitejoviale.fr");
             }
         };
     }
+
+/*
+    @Bean
+    public CorsFilter corsFilter(){
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+
+        corsConfiguration.setAllowCredentials(true);
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "https://mugiwara.csid.agilitejoviale.fr"));
+        corsConfiguration.setAllowedMethods(Arrays.asList(CorsConfiguration.ALL));
+        corsConfiguration.setAllowedHeaders(Arrays.asList(CorsConfiguration.ALL));
+        source.registerCorsConfiguration("/**", corsConfiguration);
+        return new CorsFilter(source);
+    }
+*/
+
 
 
 }

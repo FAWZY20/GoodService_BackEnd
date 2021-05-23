@@ -13,7 +13,6 @@ public class UserRegister {
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-
     @Column(nullable = false, length = 20)
     private String nom;
 

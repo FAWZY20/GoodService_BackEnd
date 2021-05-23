@@ -1,4 +1,4 @@
-package com.example.goodservice.Service;
+package com.example.goodservice.service;
 
 
 import com.example.goodservice.model.UserRegister;

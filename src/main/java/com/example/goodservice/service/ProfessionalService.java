@@ -1,4 +1,4 @@
-package com.example.goodservice.Service;
+package com.example.goodservice.service;
 
 import com.example.goodservice.model.ProfesionalRegister;
 import com.example.goodservice.repo.ProfesionalRepository;

@@ -1,9 +1,8 @@
 package com.example.goodservice.controller;
 
-import com.example.goodservice.Service.ProfessionalService;
+import com.example.goodservice.service.ProfessionalService;
 import com.example.goodservice.model.ProfesionalRegister;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

@@ -31,4 +31,3 @@ CREATE TABLE professional
     mdp VARCHAR(18)
 
 )
-

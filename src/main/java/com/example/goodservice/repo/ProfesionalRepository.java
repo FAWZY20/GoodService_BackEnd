@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface ProfesionalRepository extends JpaRepository<ProfesionalRegister, String>
+public interface ProfesionalRepository extends JpaRepository<ProfesionalRegister, Integer>
 {
     public ProfesionalRegister findByEmail(String email);
     public ProfesionalRegister findUserByEmailAndMdp(String email, String mdp);

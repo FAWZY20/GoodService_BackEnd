@@ -9,9 +9,10 @@ import javax.persistence.*;
 public class UserRegister {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(generator = "uuid2")
+    // @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    private Integer id;
 
     @Column(nullable = false, length = 20)
     private String nom;
@@ -50,11 +51,11 @@ public class UserRegister {
         this.mdp = mdp;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

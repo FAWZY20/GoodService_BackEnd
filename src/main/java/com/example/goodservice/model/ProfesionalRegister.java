@@ -10,9 +10,10 @@ import java.util.Date;
 public class ProfesionalRegister {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+ //   @GeneratedValue(generator = "uuid2")
+    // @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    private Integer id;
 
     @Column(nullable = false, length = 20)
     private String poste;
@@ -26,7 +27,7 @@ public class ProfesionalRegister {
     @Column(nullable = false)
     private Date date_naissance;
 
-    @Column(nullable = false, length = 18)
+    @Column(nullable = false, length = 14)
     private String siret;
 
     @Column(nullable = false, length = 50)
@@ -63,11 +64,11 @@ public class ProfesionalRegister {
         this.mdp=mdp;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

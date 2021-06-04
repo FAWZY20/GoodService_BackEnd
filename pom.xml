@@ -18,11 +18,11 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
-        <dependency>
+      <!--  <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
             <version>4.3.5</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>ma.glasnost.orika</groupId>
             <artifactId>orika-core</artifactId>

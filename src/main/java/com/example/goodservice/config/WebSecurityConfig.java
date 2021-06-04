@@ -43,6 +43,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
 
     }
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {

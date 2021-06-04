@@ -1,46 +1,46 @@
 package com.example.goodservice.controller;
 
+import com.example.goodservice.model.ProfesionalEntity;
 import com.example.goodservice.service.ProfessionalService;
-import com.example.goodservice.model.ProfesionalRegister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ProfessionalRegisterController {
+public class ProfessionalController {
 
     @Autowired
     private ProfessionalService service;
 
     @PostMapping("/registerProfessional")
-    public ProfesionalRegister registerProfessional(@RequestBody ProfesionalRegister professional) throws Exception
+    public ProfesionalEntity registerProfessional(@RequestBody ProfesionalEntity professional) throws Exception
     {
         String tempEmail = professional.getEmail();
         if(tempEmail != null && !"".equals(tempEmail))
         {
-            ProfesionalRegister userobj = (ProfesionalRegister) service.fetchProfessionalByEmail(tempEmail);
+            ProfesionalEntity userobj = (ProfesionalEntity) service.fetchProfessionalByEmail(tempEmail);
             if(userobj != null) {
                 throw  new Exception("utilisateur avec"+tempEmail+"existe déjà");
             }
         }
-        ProfesionalRegister userObj = null;
-        userObj = (ProfesionalRegister) service.saveProfessional(professional);
-        return (ProfesionalRegister) userObj;
+        ProfesionalEntity userObj = null;
+        userObj = (ProfesionalEntity) service.saveProfessional(professional);
+        return (ProfesionalEntity) userObj;
     }
 
     @PostMapping("/connexionProfessional")
-    public ProfesionalRegister loginProfessional(@RequestBody ProfesionalRegister profesionalRegister) throws Exception
+    public ProfesionalEntity loginProfessional(@RequestBody ProfesionalEntity profesionalEntity) throws Exception
     {
-        String tempEmail = profesionalRegister.getEmail();
-        String tempPass = profesionalRegister.getMdp();
-        ProfesionalRegister userObj = null;
+        String tempEmail = profesionalEntity.getEmail();
+        String tempPass = profesionalEntity.getMdp();
+        ProfesionalEntity userObj = null;
         if(tempEmail != null && tempPass != null) {
-            userObj = (ProfesionalRegister) service.fetchProfessionalByEmailAndMdp(tempEmail, tempPass);
+            userObj = (ProfesionalEntity) service.fetchProfessionalByEmailAndMdp(tempEmail, tempPass);
         }
         if(userObj == null ) {
             throw new Exception("Mauvaises qualifications");
         }
-        return (ProfesionalRegister) userObj;
+        return (ProfesionalEntity) userObj;
     }
 }

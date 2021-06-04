@@ -1,28 +1,46 @@
 package com.example.goodservice.service;
 
 
-import com.example.goodservice.model.UserRegister;
+import com.example.goodservice.DTO.UserDTO;
+import com.example.goodservice.model.UserEntity;
 import com.example.goodservice.repo.UserRepository;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service 
+import java.util.List;
+import java.util.Optional;
+
+@Service
 public class UserService {
+
+    @Autowired private DTOMapper mapper;
 
     @Autowired
     private UserRepository repo;
 
-    public UserRegister saveUser(UserRegister userRegister) {
-        return repo.save(userRegister);
+    public UserEntity saveUser(UserEntity userEntity) {
+
+        return repo.save(userEntity);
     }
 
-    public UserRegister fetchUserByEmail(String email)
+    public UserEntity fetchUserByEmail(String email)
     {
-       return repo.findByEmail(email);
+        return repo.findByEmail(email);
     }
 
-   public UserRegister fetchUserByEmailAndMdp(String email, String mdp)
+    public UserEntity fetchUserByEmailAndMdp(String email, String mdp)
     {
-        return repo.findUserByEmailAndMdp(email, mdp);
+        return repo.findUserByEmailAndMdp(email,mdp);
+    }
+
+    public List<UserEntity> getUser() {
+        val entities = repo.findAll();
+        return mapper.mapAsList(entities, UserEntity.class);
+    }
+
+    public UserEntity getUserById(int id) {
+        Optional<UserEntity> optionalUser = repo.findById(id);
+        return optionalUser.get();
     }
 }

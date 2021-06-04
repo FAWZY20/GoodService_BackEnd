@@ -1,4 +1,4 @@
-package com.example.goodservice.model.DTO;
+package com.example.goodservice.DTO;
 
 import lombok.Data;
 
@@ -10,12 +10,19 @@ public class ReservationDTO {
 
 
     private int id;
-    private int patient_id;
-    private int profesional_id;
+
+    private UserLightDTO client;
+
+    private ProfessionalLightDTO professional;
+
     private String prestation;
-    private Date appointement_DateTime;
+
+    private Date appointementDate;
+
     private Time heure;
+
     private String address;
-    private String etat;
+
+    private ReservationStatus etat;
 
 }

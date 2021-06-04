@@ -1,30 +1,55 @@
 package com.example.goodservice.service;
 
-import com.example.goodservice.model.DTO.ReservationDTO;
+import com.example.goodservice.DTO.ReservationDTO;
+import com.example.goodservice.model.ProfesionalEntity;
 import com.example.goodservice.model.ReservationEntity;
+import com.example.goodservice.model.UserEntity;
+import com.example.goodservice.repo.ProfesionalRepository;
 import com.example.goodservice.repo.ReservationRepository;
+import com.example.goodservice.repo.UserRepository;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
 public class ReservationService {
 
-    @Autowired private ReservationRepository repository;
+    @Autowired private ReservationRepository reservationRepository;
+
+    @Autowired private UserRepository userRepository;
+
+    @Autowired private ProfesionalRepository professionalRepository;
 
     @Autowired private DTOMapper mapper;
 
 
-    public List<ReservationDTO> listCurrentUserReservations(){
-       val entities = repository.findAll();//TODO use filtre by current user
+    public List<ReservationDTO> getReservation(){
+        val entities = reservationRepository.findAll();//TODO use filtre by current user
         return mapper.mapAsList(entities, ReservationDTO.class);
     }
+    public ReservationEntity getReservationByIdUser(UserEntity id){
+        return reservationRepository.findReservationByUserId(id);
+    }
 
-    public ReservationEntity reservationEntity(ReservationEntity reservationEntity) {
-        return repository.save(reservationEntity);
+    public ReservationEntity getReservationByIdProfessionel(ProfesionalEntity id){
+        return reservationRepository.findReservationByProfessionalId(id);
+    }
+
+    public ReservationDTO createNewReservation(ReservationDTO dto) {
+        ReservationEntity entity = mapper.map(dto, ReservationEntity.class);
+
+        val client = userRepository.getOne(dto.getClient().getId());
+        entity.setClient(client);
+
+        val professional = professionalRepository.getOne(dto.getProfessional().getId());
+        entity.setProfessional(professional);
+
+        entity = reservationRepository.save(entity);
+        return mapper.map(entity, ReservationDTO.class);
     }
 }

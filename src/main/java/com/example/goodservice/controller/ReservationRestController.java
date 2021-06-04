@@ -1,7 +1,9 @@
 package com.example.goodservice.controller;
 
-import com.example.goodservice.model.DTO.ReservationDTO;
+import com.example.goodservice.DTO.ReservationDTO;
+import com.example.goodservice.model.ProfesionalEntity;
 import com.example.goodservice.model.ReservationEntity;
+import com.example.goodservice.model.UserEntity;
 import com.example.goodservice.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,18 +16,28 @@ public class ReservationRestController {
 
     @Autowired private ReservationService delegate;
 
-    @GetMapping("/ReservationUser")
+    @GetMapping("/list")
     public List<ReservationDTO> list()
     {
-        return delegate.listCurrentUserReservations();
+        return delegate.getReservation();
     }
 
-    @PostMapping(path = "/coiffure")
-    public ReservationEntity reservationEntity(@RequestBody ReservationEntity reservation)
+   @GetMapping(value = "/{id}/list")
+    public ReservationEntity reservationByIdUser(@PathVariable("id") UserEntity id)
     {
-        ReservationEntity userObj = null;
-        userObj = (ReservationEntity) delegate.reservationEntity(reservation);
-        return (ReservationEntity) userObj;
+        return delegate.getReservationByIdUser(id);
+    }
+
+    @GetMapping(value = "/{id}/listprofesionel")
+    public ReservationEntity reservationByIdProfessionel(@PathVariable("id") ProfesionalEntity id)
+    {
+        return delegate.getReservationByIdProfessionel(id);
+    }
+
+    @PostMapping("/new")
+    public ReservationDTO createNewReservation(@RequestBody ReservationDTO dto)
+    {
+        return delegate.createNewReservation(dto);
     }
 
 }

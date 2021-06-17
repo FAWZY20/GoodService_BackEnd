@@ -1,17 +1,34 @@
 package com.example.goodservice.controller;
 
-import com.example.goodservice.model.ProfesionalEntity;
+import com.example.goodservice.model.UserEntity;
 import com.example.goodservice.service.ProfessionalService;
+import com.example.goodservice.model.ProfesionalEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class ProfessionalController {
 
     @Autowired
     private ProfessionalService service;
+
+    @GetMapping(value = "/professional/list")
+    public List<ProfesionalEntity> getProfessional(){
+        return service.getProfessional();
+    }
+/*
+    @GetMapping(value = "/professional/list/city")
+    public List<ProfesionalEntity> getProfessionalByCity(UserEntity ville){
+        return service.getProfessionalByCity(ville);
+    }
+
+ */
+
 
     @PostMapping("/registerProfessional")
     public ProfesionalEntity registerProfessional(@RequestBody ProfesionalEntity professional) throws Exception
@@ -29,6 +46,7 @@ public class ProfessionalController {
         return (ProfesionalEntity) userObj;
     }
 
+
     @PostMapping("/connexionProfessional")
     public ProfesionalEntity loginProfessional(@RequestBody ProfesionalEntity profesionalEntity) throws Exception
     {
@@ -43,4 +61,6 @@ public class ProfessionalController {
         }
         return (ProfesionalEntity) userObj;
     }
+
+
 }

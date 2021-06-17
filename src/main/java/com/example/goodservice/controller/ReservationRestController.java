@@ -40,4 +40,14 @@ public class ReservationRestController {
         return delegate.createNewReservation(dto);
     }
 
+    @DeleteMapping("/reservation/{id}/delete")
+    public void deleteReseravation(@PathVariable("id") Integer id) {
+        delegate.delete(id);
+    }
+
+    @PutMapping("/reservation/edit")
+    public void uptadeAppointment(@RequestBody ReservationDTO reservationDTO) {
+        delegate.updateReservation(reservationDTO);
+    }
+
 }

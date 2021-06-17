@@ -26,10 +26,10 @@ public class ReservationEntity {
 
     private Date appointementDate;
 
-    private Time heure;
-
     private String address;
 
     private ReservationStatus etat;
+
+    private String message;
 
 }

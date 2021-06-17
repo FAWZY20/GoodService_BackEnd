@@ -49,25 +49,10 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200", "https://mugiwara.csid.agilitejoviale.fr");
+                registry.addMapping("/**").allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE").allowedOrigins("http://localhost:4200", "https://mugiwara.csid.agilitejoviale.fr");
             }
         };
     }
-
-/*
-    @Bean
-    public CorsFilter corsFilter(){
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-
-        corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "https://mugiwara.csid.agilitejoviale.fr"));
-        corsConfiguration.setAllowedMethods(Arrays.asList(CorsConfiguration.ALL));
-        corsConfiguration.setAllowedHeaders(Arrays.asList(CorsConfiguration.ALL));
-        source.registerCorsConfiguration("/**", corsConfiguration);
-        return new CorsFilter(source);
-    }
-*/
 
 }
 

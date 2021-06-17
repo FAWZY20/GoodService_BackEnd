@@ -1,6 +1,7 @@
 package com.example.goodservice.model;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -30,6 +31,9 @@ public class ProfesionalEntity {
     private String siret;
 
     @Column(nullable = false, length = 30)
+    private String ville;
+
+    @Column(nullable = false, length = 30)
     private String latitude;
 
     @Column(nullable = false, length = 30)
@@ -38,7 +42,7 @@ public class ProfesionalEntity {
     @Column(nullable = false,unique = true, length = 10)
     private Integer numero;
 
-    @Column(nullable = false, unique = true, length = 45 )
+    @Column(nullable = false, unique = true, length = 100 )
     private String email;
 
     @Column(nullable = false, length = 64)

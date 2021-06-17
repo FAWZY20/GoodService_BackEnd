@@ -14,7 +14,8 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    @Autowired private DTOMapper mapper;
+    @Autowired
+    private DTOMapper mapper;
 
     @Autowired
     private UserRepository repo;
@@ -24,14 +25,12 @@ public class UserService {
         return repo.save(userEntity);
     }
 
-    public UserEntity fetchUserByEmail(String email)
-    {
+    public UserEntity fetchUserByEmail(String email) {
         return repo.findByEmail(email);
     }
 
-    public UserEntity fetchUserByEmailAndMdp(String email, String mdp)
-    {
-        return repo.findUserByEmailAndMdp(email,mdp);
+    public UserEntity fetchUserByEmailAndMdp(String email, String mdp) {
+        return repo.findUserByEmailAndMdp(email, mdp);
     }
 
     public List<UserEntity> getUser() {

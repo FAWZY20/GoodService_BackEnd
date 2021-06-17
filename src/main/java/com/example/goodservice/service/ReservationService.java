@@ -52,4 +52,16 @@ public class ReservationService {
         entity = reservationRepository.save(entity);
         return mapper.map(entity, ReservationDTO.class);
     }
+
+    public void updateReservation(ReservationDTO reservationDTO){
+        val entity = reservationRepository.getOne(reservationDTO.getId());
+        entity.setAppointementDate(reservationDTO.getAppointementDate());
+        entity.setAddress(reservationDTO.getAddress());
+        entity.setMessage(reservationDTO.getMessage());
+        entity.setEtat(reservationDTO.getEtat());
+    }
+
+    public void delete(Integer id) {
+        reservationRepository.deleteById(id);
+    }
 }

@@ -3,7 +3,7 @@ package com.example.goodservice.DTO;
 import lombok.Data;
 
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 public class ReservationDTO {
@@ -19,10 +19,10 @@ public class ReservationDTO {
 
     private Date appointementDate;
 
-    private Time heure;
-
     private String address;
 
-    private ReservationStatus etat;
+    private ReservationStatus etat ;
+
+    private String message;
 
 }

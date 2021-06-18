@@ -33,9 +33,9 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                .antMatchers(HttpMethod.POST,"/inscription/utilisateur").permitAll()
                 .antMatchers(HttpMethod.POST,"/registerUser").permitAll()
-                .antMatchers(HttpMethod.POST,"/registerUser").permitAll()
-                .antMatchers(HttpMethod.POST,"/connexionUser").permitAll()
+                .antMatchers(HttpMethod.POST,"/connexion/utilisateur").permitAll()
                 .antMatchers(HttpMethod.POST,"/connexionProfessional").permitAll()
                 .antMatchers(HttpMethod.POST,"/registerProfessional").permitAll()
                 //.anyRequest().authenticated();

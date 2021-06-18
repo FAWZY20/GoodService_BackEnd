@@ -48,6 +48,7 @@ public class UserController {
         return (UserEntity) userObj;
     }
 
+    @CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr")
     @PostMapping("/connexion/utilisateur")
     public UserEntity loginUser(@RequestBody UserEntity userEntity) throws Exception {
         String tempEmail = userEntity.getEmail();

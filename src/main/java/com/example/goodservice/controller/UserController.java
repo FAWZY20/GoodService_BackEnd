@@ -18,7 +18,6 @@ import java.net.Authenticator;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 public class UserController {
 
     @Autowired

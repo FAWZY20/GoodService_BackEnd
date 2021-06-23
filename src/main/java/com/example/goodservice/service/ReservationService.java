@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -32,11 +31,11 @@ public class ReservationService {
         val entities = reservationRepository.findAll();//TODO use filtre by current user
         return mapper.mapAsList(entities, ReservationDTO.class);
     }
-    public ReservationEntity getReservationByIdUser(UserEntity id){
+    public List<ReservationEntity> getReservationByIdUser(UserEntity id){
         return reservationRepository.findReservationByUserId(id);
     }
 
-    public ReservationEntity getReservationByIdProfessionel(ProfesionalEntity id){
+    public List<ReservationEntity> getReservationByIdProfessionel(ProfesionalEntity id){
         return reservationRepository.findReservationByProfessionalId(id);
     }
 
@@ -63,5 +62,13 @@ public class ReservationService {
 
     public void delete(Integer id) {
         reservationRepository.deleteById(id);
+    }
+
+    public List<ReservationEntity> getReservationFinishByIdUser(UserEntity id) {
+        return reservationRepository.findReservationFinishOrRefusedByUserId(id);
+    }
+
+    public List<ReservationEntity> getReservationFinishByIdPro(ProfesionalEntity id) {
+        return reservationRepository.findReservationFinishOrRefusedByProId(id);
     }
 }

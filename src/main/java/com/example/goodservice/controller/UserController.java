@@ -1,5 +1,6 @@
 package com.example.goodservice.controller;
 
+import com.example.goodservice.DTO.ReservationDTO;
 import com.example.goodservice.DTO.UserDTO;
 import com.example.goodservice.service.UserService;
 import com.example.goodservice.model.UserEntity;
@@ -33,6 +34,11 @@ public class UserController {
         return service.getUserById(id);
     }
 
+    @PutMapping("/user/edit")
+    public void uptadeUser(@RequestBody UserEntity user) {
+        service.updateUser(user);
+    }
+
     @PostMapping("/inscription/utilisateur")
     public UserEntity registerUser(@RequestBody UserEntity user) throws Exception {
         String tempEmail = user.getEmail();
@@ -48,7 +54,6 @@ public class UserController {
         return (UserEntity) userObj;
     }
 
-    @CrossOrigin(origins = "https://mugiwara.csid.agilitejoviale.fr")
     @PostMapping("/connexion/utilisateur")
     public UserEntity loginUser(@RequestBody UserEntity userEntity) throws Exception {
         String tempEmail = userEntity.getEmail();

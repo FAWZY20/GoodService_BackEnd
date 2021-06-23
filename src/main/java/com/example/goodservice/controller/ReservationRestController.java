@@ -22,14 +22,26 @@ public class ReservationRestController {
         return delegate.getReservation();
     }
 
-   @GetMapping(value = "/{id}/list")
-    public ReservationEntity reservationByIdUser(@PathVariable("id") UserEntity id)
+   @GetMapping(value = "/list/{id}")
+    public List<ReservationEntity> reservationByIdUser(@PathVariable("id") UserEntity id)
     {
         return delegate.getReservationByIdUser(id);
     }
 
-    @GetMapping(value = "/{id}/listprofesionel")
-    public ReservationEntity reservationByIdProfessionel(@PathVariable("id") ProfesionalEntity id)
+    @GetMapping(value = "/list/fini/{id}")
+    public List<ReservationEntity> reservationFinishByIdUser(@PathVariable("id") UserEntity id)
+    {
+        return delegate.getReservationFinishByIdUser(id);
+    }
+
+    @GetMapping(value = "/list/pro/fini/{id}")
+    public List<ReservationEntity> reservationFinishByIdPro(@PathVariable("id") ProfesionalEntity id)
+    {
+        return delegate.getReservationFinishByIdPro(id);
+    }
+
+    @GetMapping(value = "/listprofesionel/{id}")
+    public List<ReservationEntity> reservationByIdProfessionel(@PathVariable("id") ProfesionalEntity id)
     {
         return delegate.getReservationByIdProfessionel(id);
     }

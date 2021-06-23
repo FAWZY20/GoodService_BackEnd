@@ -1,5 +1,6 @@
 package com.example.goodservice.controller;
 
+import com.example.goodservice.DTO.ProfessionalLightDTO;
 import com.example.goodservice.model.UserEntity;
 import com.example.goodservice.service.ProfessionalService;
 import com.example.goodservice.model.ProfesionalEntity;
@@ -18,14 +19,17 @@ public class ProfessionalController {
     public List<ProfesionalEntity> getProfessional(){
         return service.getProfessional();
     }
-/*
-    @GetMapping(value = "/professional/list/city")
-    public List<ProfesionalEntity> getProfessionalByCity(UserEntity ville){
+
+    @GetMapping(value = "/professional/list/{ville}")
+    public List<ProfesionalEntity> getProfessionalByCity(@PathVariable("ville") String ville)
+    {
         return service.getProfessionalByCity(ville);
     }
 
- */
-
+    @PutMapping("/professional/edit")
+    public void uptadeProfessional(@RequestBody ProfessionalLightDTO professional) {
+        service.updateProfessional(professional);
+    }
 
     @PostMapping("/registerProfessional")
     public ProfesionalEntity registerProfessional(@RequestBody ProfesionalEntity professional) throws Exception

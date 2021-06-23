@@ -1,10 +1,12 @@
 package com.example.goodservice.service;
 
 
+import com.example.goodservice.DTO.ReservationDTO;
 import com.example.goodservice.DTO.UserDTO;
 import com.example.goodservice.model.UserEntity;
 import com.example.goodservice.repo.UserRepository;
 import lombok.val;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +43,16 @@ public class UserService {
     public UserEntity getUserById(int id) {
         Optional<UserEntity> optionalUser = repo.findById(id);
         return optionalUser.get();
+    }
+
+    public void updateUser(UserEntity user) {
+        val entity = repo.getOne(user.getId());
+        entity.setNom(user.getNom());
+        entity.setPrenom(user.getPrenom());
+        entity.setNumero(user.getNumero());
+        entity.setEmail(user.getEmail());
+        entity.setAdresse(user.getAdresse());
+        entity.setCode_postal(user.getCode_postal());
+        entity.setVille(user.getVille());
     }
 }

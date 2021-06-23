@@ -1,5 +1,6 @@
 package com.example.goodservice.service;
 
+import com.example.goodservice.DTO.ProfessionalLightDTO;
 import com.example.goodservice.model.ProfesionalEntity;
 import com.example.goodservice.model.UserEntity;
 import com.example.goodservice.repo.ProfesionalRepository;
@@ -39,14 +40,23 @@ public class ProfessionalService {
         return mapper.mapAsList(entities, ProfesionalEntity.class);
     }
 
-    public ProfesionalEntity getProfessionalByCoiffeur(ProfesionalEntity poste) {
-        return repo.professionalCoiffeur(poste);
-    }
-/*
-    public List<ProfesionalEntity> getProfessionalByCity(UserEntity ville) {
-        repo.getProfessionalByCity(ville);
+    public List<ProfesionalEntity> getProfessionalByCity(String ville) {
+        val entities = repo.getProfessionalByCity(ville);
+        return mapper.mapAsList(entities, ProfesionalEntity.class);
     }
 
- */
+    public void updateProfessional(ProfessionalLightDTO professional) {
+        val entity = repo.getOne(professional.getId());
+        entity.setNom(professional.getNom());
+        entity.setPrenom(professional.getPrenom());
+        entity.setDate_naissance(professional.getDate_naissance());
+        entity.setNumero(professional.getNumero());
+        entity.setEmail(professional.getEmail());
+        entity.setPoste(professional.getPoste());
+        entity.setSiret(professional.getSiret());
+        entity.setVille(professional.getVille());
+        entity.setLatitude(professional.getLatitude());
+        entity.setLongitude(professional.getLongitude());
+    }
 }
 

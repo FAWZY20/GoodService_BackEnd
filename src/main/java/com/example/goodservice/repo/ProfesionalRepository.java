@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 @Repository
 public interface ProfesionalRepository extends JpaRepository<ProfesionalEntity, Integer>
@@ -15,12 +17,7 @@ public interface ProfesionalRepository extends JpaRepository<ProfesionalEntity, 
     public ProfesionalEntity findByEmail(String email);
     public ProfesionalEntity findUserByEmailAndMdp(String email, String mdp);
 
-    @Query("SELECT u FROM ProfesionalEntity u WHERE u.poste= :poste")
-    ProfesionalEntity professionalCoiffeur(@Param("poste") ProfesionalEntity poste);
-/*
-    @Query("SELECT p FROM ProfesionalEntity p JOIN p. u WHERE u.ville= :ville")
-    ProfesionalEntity getProfessionalByCity(@Param("ville") UserEntity ville);
-
-*/
+    @Query("SELECT p FROM ProfesionalEntity p WHERE p.ville= :ville AND p.poste= 'coiffurd'")
+    List<ProfesionalEntity> getProfessionalByCity( @Param("ville") String ville);
 
 }

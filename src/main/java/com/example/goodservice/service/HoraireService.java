@@ -20,7 +20,9 @@ public class HoraireService {
     @Autowired
     private HoraireRepository horaireRepository;
 
-    public HoraireEntity createNewHoraire(HoraireEntity horaire) {
+
+    public HoraireEntity createNewHoraire(HoraireEntity horaire, ProfesionalEntity id) {
+        horaire.setProfessional(id);
         HoraireEntity entity = mapper.map(horaire, HoraireEntity.class);
         entity = horaireRepository.save(entity);
         return mapper.map(entity, HoraireEntity.class);
@@ -36,5 +38,9 @@ public class HoraireService {
         entity.setJour(horaireEntity.getJour());
         entity.setHeureDeb(horaireEntity.getHeureDeb());
         entity.setHeureFin(horaireEntity.getHeureFin());
+    }
+
+    public void delete(Integer id) {
+        horaireRepository.deleteById(id);
     }
 }

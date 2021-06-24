@@ -20,7 +20,8 @@ public class CardService {
     private CardRepository cardRepository;
 
 
-    public CardEntity createNewCard(CardEntity card) {
+    public CardEntity createNewCard(CardEntity card, UserEntity id) {
+        card.setClient(id);
         CardEntity entity = mapper.map(card, CardEntity.class);
         entity = cardRepository.save(entity);
         return mapper.map(entity, CardEntity.class);
@@ -30,5 +31,9 @@ public class CardService {
     public List<CardEntity> getCardByUserId(UserEntity id) {
 
         return cardRepository.findCardByUserId(id);
+    }
+
+    public void delete(Integer id) {
+        cardRepository.deleteById(id);
     }
 }

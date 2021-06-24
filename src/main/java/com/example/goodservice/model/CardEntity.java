@@ -18,7 +18,9 @@ public class CardEntity {
     @ManyToOne
     private UserEntity client;
 
-    private Integer numeroDeCarte;
+    private String nom;
+
+    private int numeroDeCarte;
 
     private Date dateExpiration;
 

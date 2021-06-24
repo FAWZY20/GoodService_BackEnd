@@ -17,10 +17,10 @@ public class HoraireOuverture {
     @Autowired
     private HoraireService service;
 
-    @PostMapping("/new/horaire")
-    public HoraireEntity createNewHoraire(@RequestBody HoraireEntity horaire)
+    @PostMapping("/new/horaire/{id}")
+    public HoraireEntity createNewHoraire(@RequestBody HoraireEntity horaire, @PathVariable("id") ProfesionalEntity id)
     {
-        return service.createNewHoraire(horaire);
+        return service.createNewHoraire(horaire,id);
     }
 
     @GetMapping("/horaire/professional/{id}")
@@ -31,5 +31,10 @@ public class HoraireOuverture {
     @PutMapping("/horaire/edit")
     public void uptadeAppointment(@RequestBody HoraireEntity horaireEntity) {
         service.updateHoraire(horaireEntity);
+    }
+
+    @DeleteMapping("/horaire/{id}/delete")
+    public void deleteCard(@PathVariable("id") Integer id) {
+        service.delete(id);
     }
 }

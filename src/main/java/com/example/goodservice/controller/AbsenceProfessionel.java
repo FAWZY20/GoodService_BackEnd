@@ -15,10 +15,10 @@ public class AbsenceProfessionel {
     @Autowired
     private AbsenceService service;
 
-    @PostMapping("/new/absence")
-    public AbsenceEntity createNewAbs(@RequestBody AbsenceEntity absenceEntity)
+    @PostMapping("/new/absence/{id}")
+    public AbsenceEntity createNewAbs(@RequestBody AbsenceEntity absenceEntity,@PathVariable("id") ProfesionalEntity id)
     {
-        return service.createNewAbs(absenceEntity);
+        return service.createNewAbs(absenceEntity, id);
     }
 
     @GetMapping("/absence/professional/{id}")

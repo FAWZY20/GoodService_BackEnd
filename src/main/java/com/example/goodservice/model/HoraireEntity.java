@@ -16,6 +16,7 @@ public class HoraireEntity {
     @GeneratedValue
     private Integer id;
 
+    @JsonDeserialize(using = ProfesionalJsonDeserializer.class)
     @ManyToOne
     private ProfesionalEntity professional;
 

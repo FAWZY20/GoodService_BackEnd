@@ -19,7 +19,8 @@ public class AbsenceService {
     @Autowired
     private AbscenceRepository abscenceRepository;
 
-    public AbsenceEntity createNewAbs(AbsenceEntity absenceEntity) {
+    public AbsenceEntity createNewAbs(AbsenceEntity absenceEntity, ProfesionalEntity id) {
+        absenceEntity.setProfessional(id);
         AbsenceEntity entity = mapper.map(absenceEntity, AbsenceEntity.class);
         entity = abscenceRepository.save(entity);
         return mapper.map(entity, AbsenceEntity.class);

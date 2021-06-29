@@ -28,8 +28,11 @@ public class ReservationEntity {
 
     private String address;
 
-    private ReservationStatus etat;
+    @Column(length = 32, columnDefinition = "varchar(32) default 'Encour'")
+    @Enumerated(value = EnumType.STRING)
+    private ReservationStatus etat = ReservationStatus.Encour;
 
     private String message;
+
 
 }

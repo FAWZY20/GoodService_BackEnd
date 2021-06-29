@@ -1,6 +1,7 @@
 package com.example.goodservice.service;
 
 import com.example.goodservice.DTO.ReservationDTO;
+import com.example.goodservice.DTO.UserLightDTO;
 import com.example.goodservice.model.ProfesionalEntity;
 import com.example.goodservice.model.ReservationEntity;
 import com.example.goodservice.model.UserEntity;
@@ -39,17 +40,18 @@ public class ReservationService {
         return reservationRepository.findReservationByProfessionalId(id);
     }
 
-    public ReservationDTO createNewReservation(ReservationDTO dto) {
-        ReservationEntity entity = mapper.map(dto, ReservationEntity.class);
+    public ReservationEntity createNewReservation(ReservationEntity reservation, UserEntity id) {
+        reservation.setClient(id);
+        ReservationEntity entity = mapper.map(reservation, ReservationEntity.class);
 
-        val client = userRepository.getOne(dto.getClient().getId());
+        val client = userRepository.getOne(reservation.getClient().getId());
         entity.setClient(client);
 
-        val professional = professionalRepository.getOne(dto.getProfessional().getId());
+        val professional = professionalRepository.getOne(reservation.getProfessional().getId());
         entity.setProfessional(professional);
 
         entity = reservationRepository.save(entity);
-        return mapper.map(entity, ReservationDTO.class);
+        return mapper.map(entity, ReservationEntity.class);
 
     }
 

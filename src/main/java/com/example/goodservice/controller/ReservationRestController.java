@@ -1,6 +1,7 @@
 package com.example.goodservice.controller;
 
 import com.example.goodservice.DTO.ReservationDTO;
+import com.example.goodservice.DTO.UserLightDTO;
 import com.example.goodservice.model.ProfesionalEntity;
 import com.example.goodservice.model.ReservationEntity;
 import com.example.goodservice.model.UserEntity;
@@ -46,10 +47,10 @@ public class ReservationRestController {
         return delegate.getReservationByIdProfessionel(id);
     }
 
-    @PostMapping("/new")
-    public ReservationDTO createNewReservation(@RequestBody ReservationDTO dto)
+    @PostMapping("/new/{id}")
+    public ReservationEntity createNewReservationById(@RequestBody ReservationEntity reservation,@PathVariable("id") UserEntity id)
     {
-        return delegate.createNewReservation(dto);
+        return delegate.createNewReservation(reservation,id);
     }
 
     @DeleteMapping("/reservation/{id}/delete")

@@ -17,7 +17,7 @@ public interface ProfesionalRepository extends JpaRepository<ProfesionalEntity, 
     public ProfesionalEntity findByEmail(String email);
     public ProfesionalEntity findUserByEmailAndMdp(String email, String mdp);
 
-    @Query("SELECT p FROM ProfesionalEntity p WHERE p.ville= :ville AND p.poste= 'coiffurd'")
+    @Query("SELECT p FROM ProfesionalEntity p WHERE p.ville= :ville AND p.poste= 'Coiffeur'")
     List<ProfesionalEntity> getProfessionalByCity( @Param("ville") String ville);
 
 }

@@ -1,6 +1,8 @@
 package com.example.goodservice.model;
 
 import com.example.goodservice.DTO.ReservationStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,6 +21,7 @@ public class ReservationEntity {
     @ManyToOne
     private UserEntity client;
 
+    @JsonDeserialize(using = ProfesionalJsonDeserializer.class)
     @ManyToOne
     private ProfesionalEntity professional;
 

@@ -16,10 +16,10 @@ import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<ReservationEntity, Integer> {
 
-    @Query("SELECT u FROM ReservationEntity u WHERE u.client= :id")
+    @Query("SELECT u FROM ReservationEntity u WHERE u.client= :id AND u.etat <> 'refuser' AND u.etat <> 'fini'")
     List<ReservationEntity> findReservationByUserId(@Param("id") UserEntity id);
 
-    @Query("SELECT u FROM ReservationEntity u WHERE u.professional= :id")
+    @Query("SELECT u FROM ReservationEntity u WHERE u.professional= :id AND u.etat <> 'refuser' AND u.etat <> 'fini'")
     List<ReservationEntity> findReservationByProfessionalId(@Param("id") ProfesionalEntity id);
 
     @Query("SELECT u FROM ReservationEntity u WHERE u.client= :id AND u.etat= 3 OR u.etat= 2")
